@@ -1,7 +1,7 @@
 
-#titulo {
+/* #titulo {
     color:tomato; /* the selector with id is with #, and the selector of class is with .(dot)*/
-}
+}/*
 
 p.texto {
     color:rgb(28, 141, 47);
@@ -18,8 +18,8 @@ div h2, div h3{
 *{
     font-size:20px;
     /*color:rgb(104, 47, 203);*/
-}
-/*
+}/*
+
 esto es un comentario 
 .color {
     color:#b22929; 
@@ -45,7 +45,7 @@ esto es un comentario
     outset
     none
     hidden
-*/
+*//*
 .color { 
     border-style:solid;
     border-color:blue;

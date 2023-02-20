@@ -1,0 +1,135 @@
+
+#titulo {
+    color:tomato; /* the selector with id is with #, and the selector of class is with .(dot)*/
+}
+
+p.texto {
+    color:rgb(28, 141, 47);
+}
+p.especial {
+    color:rgb(100, 34, 222);
+}
+div p {
+    color:aquamarine;
+}
+div h2, div h3{
+    color:yellowgreen;
+}
+*{
+    font-size:20px;
+    /*color:rgb(104, 47, 203);*/
+}
+/*
+esto es un comentario 
+.color {
+    color:#b22929; 
+}
+.color {
+    border:5px black dotted;  
+}
+*/
+
+
+
+/*
+    border: 5px black ; 
+}
+
+    dotted
+    dashed
+    solid
+    double
+    groove
+    ridge
+    insert
+    outset
+    none
+    hidden
+*/
+.color { 
+    border-style:solid;
+    border-color:blue;
+    border-radius:5px;
+    border-width:2rem;
+}
+#background {
+    
+    /*opacity:0.2;*/
+    
+    /*
+    background-image: url('img/desktop.jpg');
+    background-size: 100px 100px;
+    background-repeat:repeat-y;
+    background-position:center bottom;
+    */
+    background-color: rgba(255, 0, 0);
+    height: 100px;
+    background: red url('img/desktop.jpg') repeat-y center bottom 100px 100px;  
+}
+.margin{
+    background-color: chocolate;
+    margin: 15px ;
+    padding:30px 15px; /* one tuple x, y, t, b; two tuples x, y; three tuples t, y, b, four tuples: t, r, b and l*/
+    border: solid 1px black;
+    height: 100px;
+    width: 30px;
+    overflow: scroll; /* visible | hidden | clip | scroll | auto */
+    outline: 1px solid red;
+}
+.text{
+    font-family:'roboto','sans-serif';
+    text-align: center; /*defoult is left*/
+    text-decoration: overline ;/*wavy, unset, under-line, linetrougth, initial, inherit,overline, transparent, none, solid*/ 
+    text-shadow: 3px 5px 5px blue; /*1st right, 2nd left, 3st difuminated*/
+}   
+/*links can have 4 states, never visited, one visit (visited), is active or navigate up(hover)*/
+
+a:link{
+    color:blueviolet;
+}
+a:visited{
+    color:rgb(118, 117, 122);
+    
+}
+a:hover{
+    color:rgb(210, 252, 4);
+    
+}
+a:active{
+    color:rgb(169, 36, 36);
+    
+}
+
+ul{
+    background-color:rgb(121, 185, 96);
+    list-style-type:decimal; /* none, unset, armenian, upper-alpha, lower-alpha, upper-roman, lower-roman, 
+    padding-left: 0px;
+    list-style-position: outside; /*inside | outside (defaoult)*/
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: solid 1px #eee;
+    padding: 2px;
+}
+th{
+    background-color: darkblue ;
+    color: white;
+    text-align: left;
+}
+tr:nth-child(even) /*odd, or even*/ {
+    background-color: rgba(242, 247, 242, 0.651);
+}
+tr:hover{
+    background-color: rgb(206, 230, 216);
+    cursor:pointer;
+}
+span{
+    display:block; /* the tags with property inline are: <a>, <img> and <link>*/
+}
+.inline {
+    display:inline; /* for put inline you should be a div class, then the selector of class:inline with arg display:inline*/
+}
+

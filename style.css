@@ -13,7 +13,7 @@ div p {
     color:aquamarine;
 }
 div h2, div h3{
-    color:yellowgreen;
+    color:rgb(205, 94, 50);
 }
 *{
     font-size:20px;

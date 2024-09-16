@@ -3,57 +3,68 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 // Módulo de Usuarios
-import { UsersModule } from './users/users.module';
-import { UsersController } from './users/users.controller';
-import { UsersService } from './users/users.service';
+import { UsersModule } from './modules/reports/users/users.module';
+import { UsersController } from './modules/reports/users/users.controller';
+import { UsersService } from './modules/reports/users/users.service';
 
 // Módulo de Empresas
-import { CompaniesModule } from './companies/companies.module';
-import { CompaniesController } from './companies/companies.controller';
-import { CompaniesService } from './companies/companies.service';
+import { CompaniesModule } from './modules/companies/companies.module';
+import { CompaniesController } from './modules/companies/companies.controller';
+import { CompaniesService } from './modules/companies/companies.service';
 
 // Módulo de Valuación
-import { ValuationModule } from './valuation/valuation.module';
-import { ValuationController } from './valuation/valuation.controller';
-import { ValuationService } from './valuation/valuation.service';
+import { ValuationModule } from './modules/valuation/valuation.module';
+import { ValuationController } from './modules/valuation/valuation.controller';
+import { ValuationService } from './modules/valuation/valuation.service';
 
 // Módulo de Finanzas
-import { FinanceModule } from './finance/finance.module';
-import { FinanceController } from './finance/finance.controller';
-import { FinanceService } from './finance/finance.service';
+import { FinanceModule } from './modules/finance/finance.module';
+import { FinanceController } from './modules/finance/finance.controller';
+import { FinanceService } from './modules/finance/finance.service';
 
 // Módulo de Proyectos de Valuación
-import { ValuationProjectsModule } from './valuation-projects/valuation-projects.module';
-import { ValuationProjectsController } from './valuation-projects/valuation-projects.controller';
-import { ValuationProjectsService } from './valuation-projects/valuation-projects.service';
+import { ValuationProjectsModule } from './modules/valuation-projects/valuation-projects.module';
+import { ValuationProjectsController } from './modules/valuation-projects/valuation-projects.controller';
+import { ValuationProjectsService } from './modules/valuation-projects/valuation-projects.service';
 
 // Módulo de Reportes
-import { ReportsModule } from './reports/reports.module';
-import { ReportsController } from './reports/reports.controller';
-import { ReportsService } from './reports/reports.service';
+import { ReportsModule } from './modules/reports/reports.module';
+import { ReportsController } from './modules/reports/reports.controller';
+import { ReportsService } from './modules/reports/reports.service';
 
 // Módulo de APIs Financieras
-import { FinancialApisModule } from './financial-apis/financial-apis.module';
-import { FinancialApisController } from './financial-apis/financial-apis.controller';
-import { FinancialApisService } from './financial-apis/financial-apis.service';
+import { FinancialApisModule } from './modules/financial-apis/financial-apis.module';
+import { FinancialApisController } from './modules/financial-apis/financial-apis.controller';
+import { FinancialApisService } from './modules/financial-apis/financial-apis.service';
 
 // Módulo de Pagos
-import { PaymentsModule } from './payments/payments.module';
-import { PaymentsController } from './payments/payments.controller';
-import { PaymentsService } from './payments/payments.service';
+import { PaymentsModule } from './modules/payments/payments.module';
+import { PaymentsController } from './modules/payments/payments.controller';
+import { PaymentsService } from './modules/payments/payments.service';
 
 // Módulo de Seguridad
-import { SecurityModule } from './security/security.module';
-import { SecurityController } from './security/security.controller';
-import { SecurityService } from './security/security.service';
+import { SecurityModule } from './modules/security/security.module';
+import { SecurityController } from './modules/security/security.controller';
+import { SecurityService } from './modules/security/security.service';
 
 // Módulo de Notificaciones
-import { NotificationsModule } from './notifications/notifications.module';
-import { NotificationsController } from './notifications/notifications.controller';
-import { NotificationsService } from './notifications/notifications.service';
+import { NotificationsModule } from './modules/notifications/notifications.module';
+import { NotificationsController } from './modules/notifications/notifications.controller';
+import { NotificationsService } from './modules/notifications/notifications.service';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import typeOrmConfig from './config/typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [typeOrmConfig],
+    }),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => config.get('typeorm'),
+    }),
     UsersModule,
     CompaniesModule,
     ValuationModule,
